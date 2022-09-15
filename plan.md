@@ -15,7 +15,7 @@ data type
 * room
   * library C1, C2, L1 - L4
   * washing machine (9, 4) M1 - M9, W1 - W4 
-  * music (8) M1 - M8
+  * music (8) u1 - u8
 * date
   * YYYYMMDD
 * time

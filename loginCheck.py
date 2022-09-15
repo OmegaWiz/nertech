@@ -1,18 +1,20 @@
 from template import User
 from createUser import createUser
 
-def logincheck(userLog):
+def loginCheck(userLog):
     uid = input("id(for new users, type 'register'): ")
-    if (uid == ""):
+    if uid == 'register':
         print("creating a new user")
-        uid = createUser()
-        print('welcome, ' + uid + '!')
-        return(userLog[uid])
-    else:
-        user = userLog['uid']
+        (user, userLog) = createUser(userLog)
+        return (user, userLog)
+    elif uid in userLog:
+        user = userLog[uid]
         pwd = input("password for " + uid + " :")
-        while(user.pwdcheck(pwd) == False):
+        while(user.pwdCheck(pwd) == False):
             print("password is incorrect, please try again")
             pwd = input("password for " + uid + " :")
         print('welcome, ' + uid + '!')
-        return(user)
+        return (user, userLog)
+    else:
+        print('user not found, please try again')
+        return loginCheck(userLog)
