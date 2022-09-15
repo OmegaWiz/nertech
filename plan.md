@@ -11,7 +11,7 @@
 ---
 data type
 
-* id:string-"08155"
+* uid:string-"08155"
 * room
   * library C1, C2, L1 - L4
   * washing machine (9, 4) M1 - M9, W1 - W4 
