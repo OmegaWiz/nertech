@@ -5,8 +5,8 @@ def loginCheck(userLog):
     uid = input("id(for new users, type 'register'): ")
     if uid == 'register':
         print("creating a new user")
-        userLog = createUser(userLog)
-        return userLog
+        (user, userLog) = createUser(userLog)
+        return (user, userLog)
     elif uid in userLog:
         user = userLog[uid]
         pwd = input("password for " + uid + " :")
@@ -14,7 +14,7 @@ def loginCheck(userLog):
             print("password is incorrect, please try again")
             pwd = input("password for " + uid + " :")
         print('welcome, ' + uid + '!')
-        return userLog
+        return (user, userLog)
     else:
         print('user not found, please try again')
         return loginCheck(userLog)
