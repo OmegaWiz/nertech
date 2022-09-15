@@ -13,7 +13,7 @@ class User:
         self.pwd = pwd
         self.rank = rank
 
-    def pwdcheck(self, pwd):
+    def pwdCheck(self, pwd):
         if(self.pwd == pwd):
             return True
         else:
