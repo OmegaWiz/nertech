@@ -18,6 +18,8 @@ userLog = {
     "admin": adminUser
 }
 
+bookingLog = []
+
 userLog = loginCheck(userLog)
 
 while(True):

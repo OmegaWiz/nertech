@@ -9,4 +9,4 @@ def createUser(userLog):
     rank = int(input("role(1: student, 5: teacher):"))
     userLog[uid] = User(uid, pwd, rank)
     print('welcome, ' + uid + '!\n')
-    return userLog
+    return (userLog[uid], userLog)
