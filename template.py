@@ -1,15 +1,14 @@
 
 class Booking:
-    def __init__(self, user, room, date, time, duration):
+    def __init__(self, user, room, beginTime, endTime):
         self.user = user
         self.room = room
-        self.date = date
-        self.time = time
-        self.duration = duration
+        self.beginTime = beginTime
+        self.endTime = endTime
         self.status = 1
 
     def override(self, user):
-        if user.rank > self.user.rank:
+        if user.printRank() > self.user.printRank():
             self.status = 0
             return 1
         else:
@@ -33,3 +32,6 @@ class User:
             return True
         else:
             return False
+            
+    def printRank(self):
+        return self.rank
