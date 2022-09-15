@@ -1,4 +1,3 @@
-from tkinter import W
 from template import User
 from createUser import createUser
 
