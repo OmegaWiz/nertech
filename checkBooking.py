@@ -2,7 +2,7 @@ def checkBooking():
     print("booking successful")
 '''
 DESCRIPTION
-check if requested booking time duration is
+check if requested booking is
     available,
     overridable, or 
     unavailable
@@ -14,10 +14,7 @@ return either "available, "overridable", or "unavailable"
 import datetime
 from template import Booking, User
 
-def checkBooking(   user=User(), 
-                    bookingLog=[Booking()],
-                    startTime=datetime.datetime.now(), 
-                    endTime=datetime.datetime.now() + datetime.timedelta(hours=1)):
+def checkBooking(user=User()):
     '''
     bookedTime = input("please enter the time you would like to book (for example, 20:10)")
         l = bookedTime.split(':')
