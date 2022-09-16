@@ -53,6 +53,9 @@ class User:
         else:
             return False
 
+    def printUser(self):
+        print ("id: ", self.uid,"\npwd: ", self.pwd, "\nrank:", self.rank)
+
 class BookingList:
     def __init__(self):
         self.list = [Booking()]

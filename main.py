@@ -1,6 +1,6 @@
 import datetime
-
-from template import Booking, User
+from importUser import importUser
+from template import Booking, User, BookingList
 #from addBooking import *
 #from checkBooking import *
 #from printBooking import *
@@ -8,17 +8,9 @@ from template import Booking, User
 from createUser import createUser
 from loginCheck import loginCheck
 
-testUser = User("test", "test", 1)
-teacherUser = User('teacher', 'teacher', 5)
-adminUser = User('admin', 'admin', 10)
+userLog = importUser()
 
-userLog = {
-    "test": testUser,
-    "teacher": teacherUser,
-    "admin": adminUser
-}
-
-bookingLog = []
+bookingLog = [BookingList()]
 
 (user, userLog) = loginCheck(userLog)
 
