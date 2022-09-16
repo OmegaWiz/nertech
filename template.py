@@ -53,6 +53,9 @@ class User:
         else:
             return False
 
+    def printUser(self):
+        print ("id: ", self.uid,"\npwd: ", self.pwd, "\nrank:", self.rank)
+
 class BookingList:
     def __init__(self):
         self.list = [Booking()]
@@ -88,6 +91,7 @@ class BookingList:
         for i in range(0, len(self.list)):
             if self.list[i].getTime[1] > booking.getTime[1]:
                 self.list.insert(i, booking)
+<<<<<<< HEAD
                 break
     '''
     status
@@ -95,3 +99,6 @@ class BookingList:
     0 - canceled
     2 - successful
     '''
+=======
+                break
+>>>>>>> origin/master
