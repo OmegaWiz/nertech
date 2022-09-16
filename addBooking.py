@@ -34,7 +34,8 @@ def addBooking( user=User(), bookingLog=[Booking()]):
         room = input('enter the room you would like to book:')
 
     print('which date would you like to book?')
-    maxDate = user.printRank() + 2
+    print(user.getRank())
+    maxDate = user.getRank() + 2
     for i in range(0, maxDate + 1):
         print(i, ": ", datetime.date.today() + datetime.timedelta(days=i))
     dayFromNow = int(input())

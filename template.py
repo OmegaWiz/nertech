@@ -45,7 +45,7 @@ class User:
         return self.uid
 
     def getRank(self):
-        return self.rank
+        return int(self.rank)
 
     def pwdCheck(self, pwd):
         if(self.pwd == pwd):

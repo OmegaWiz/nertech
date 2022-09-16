@@ -11,8 +11,5 @@ def importUser(fileName="./userLog.csv"):
         stdread = csv.reader(file)
         for row in stdread:
             userLog.append(User(uid=row[0], pwd=row[1], rank=row[2]))
-            print('user imported: ' + row[0])
     close()
-    print(userLog[1].pwd)
-    print("successfully import all users")
     return userLog

@@ -1,7 +1,7 @@
 import datetime
 from importUser import importUser
 from template import Booking, User, BookingList
-#from addBooking import *
+from addBooking import *
 #from checkBooking import *
 #from printBooking import *
 #from removeBooking import *
@@ -20,7 +20,7 @@ while(True):
         print("thank you!")
         break
     elif(mode == 1):
-        #addBooking()
+        addBooking(user=user)
         print()
     elif(mode == 2):
         #removeBooking()
