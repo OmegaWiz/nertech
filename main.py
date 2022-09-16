@@ -1,10 +1,6 @@
 import datetime
 from importUser import importUser
 from template import Booking, User, BookingList
-#from addBooking import *
-#from checkBooking import *
-#from printBooking import *
-#from removeBooking import *
 from createUser import createUser
 from loginCheck import loginCheck
 

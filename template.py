@@ -1,3 +1,4 @@
+
 from datetime import datetime
 
 class Booking:
@@ -56,9 +57,11 @@ class User:
     def printUser(self):
         print ("id: ", self.uid,"\npwd: ", self.pwd, "\nrank:", self.rank)
 
+
 class BookingList:
-    def __init__(self):
+    def __init__(self, name):
         self.list = [Booking()]
+        self.name = name
     
     def sortBooking(self):
         self.list.sort(key=getTime())
