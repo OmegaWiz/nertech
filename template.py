@@ -1,15 +1,25 @@
 
+from calendar import TUESDAY
 from datetime import datetime
+from uuid import uuid4
 
 class Booking:
     import datetime
-    def __init__(self, user='user', room='room', beginTime=datetime.datetime.now(), endTime=datetime.datetime.now()):
+    import uuid
+    def __init__(self, user='user', room='room', beginTime=datetime.datetime.now(), endTime=datetime.datetime.now(), bookingId=uuid.uuid4()):
+        self.bookingId=bookingId
         self.user = user
         self.room = room
         self.beginTime = beginTime
         self.endTime = endTime
         self.status = "booked"
         self.desc = ""
+
+    def findBooking(self, bookingId):
+        if self.bookingId == bookingId:
+            return True
+        else:
+            return False
 
     def overrideBooking(self, user):
         if user.printRank() > self.user.printRank():
