@@ -34,5 +34,5 @@ def addBooking( user=User(),
     while not dayFromNow in range (0, maxDate + 1):
         print("the selected date is unavailable, please try again")
         dayFromNow = int(input())
-
+    
     #enter time for booking
