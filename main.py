@@ -1,13 +1,7 @@
 import datetime
 from importUser import importUser
 from template import Booking, User, BookingList
-<<<<<<< HEAD
-from addBooking import *
-#from checkBooking import *
-#from printBooking import *
-#from removeBooking import *
-=======
->>>>>>> origin/master
+from addBooking import addBooking
 from createUser import createUser
 from loginCheck import loginCheck
 
