@@ -43,7 +43,6 @@ def addBooking( user=User(), bookingLog=[Booking()]):
     while not dayFromNow in range (0, maxDate + 1):
         print("the selected date is unavailable, please try again")
         dayFromNow = int(input())
-    openTime = [(datetime.datetime(datetime.date.today().year, datetime.date.today().month, datetime.date.today().day + dayFromNow), datetime.datetime(datetime.date.today().year, datetime.date.today().month, datetime.date.today().day + dayFromNow), 23, 59)]
-    newList=checkBooking()
-    for m in newList:
-        print(m)
+    openTime = [(datetime.date.today(), datetime.date.today() + datetime.timedelta(days=i))]
+    for i in checkBooking(openTime, bookingLog(room)):
+        print(i)

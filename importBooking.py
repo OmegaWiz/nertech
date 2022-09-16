@@ -20,5 +20,3 @@ def importBooking(fileName="./bookingLog.csv"):
     close()
     print("successfully import all bookings")
     return bookingLog
-
-importBooking()

@@ -5,19 +5,19 @@ the available time slot
 import datetime
 from template import Booking, BookingList
 
-def timeCut(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+def timeCut(i=(datetime.datetime.now(), datetime.datetime.now()), j=(datetime.datetime.now(), datetime.datetime.now())):
     if j[0] < i[0]:
         i[0] = j[1]
     if j[1] > i[1]:
         i[1] = j[0]
     return i
     
-def timeSplit(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+def timeSplit(i=(datetime.datetime.now(), datetime.datetime.now()), j=(datetime.datetime.now(), datetime.datetime.now())):
     x = (i[0], j[0])
     y = (j[1], i[1])
     return [x, y]
 
-def timeSubtract(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+def timeSubtract(i=(datetime.datetime.now(), datetime.datetime.now()), j=(datetime.datetime.now(), datetime.datetime.now())):
     if j[0] <= i[0] or j[1] >= i[1]:
         return None
     if j[0] < i[0] or j[1] > i[1]:
@@ -25,7 +25,7 @@ def timeSubtract(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datet
     else:
         return timeSplit(i, j)
 
-def checkBooking(timeList=[(datetime.datetime(), datetime.datetime())], bookingLog=BookingList()):
+def checkBooking(timeList=[(datetime.datetime.now(), datetime.datetime.now())], bookingLog=BookingList(name='name')):
     newTimeList = []
     for i in timeList:
         for j in bookingLog:

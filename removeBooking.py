@@ -7,5 +7,12 @@ RETURN VALUE
 error message if error
 ''' 
 
-def removeBooking():
-    pass
+import loginCheck
+import csv
+from template import Booking, User, BookingList
+def removeBooking(self, user):
+    with open('bookingTable') as table:
+        reader_table = csv.reader(table)
+        for row in reader_table:
+            if loginCheck.uid in row:
+                print(row)
