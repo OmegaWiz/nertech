@@ -12,7 +12,7 @@ class Booking:
         self.room = room
         self.beginTime = beginTime
         self.endTime = endTime
-        self.bookingID = bookingID
+        self.bookingId = bookingId
         self.status = "booked"
         self.desc = ""
 
