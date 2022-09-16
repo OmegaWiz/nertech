@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 def checkBooking():
     print("booking successful")
-=======
 '''
 DESCRIPTION
 check if requested booking time duration is
@@ -48,4 +46,3 @@ def checkBooking(   user=User(),
         print('the requested hour(s) are unavailable, please try again')
     '''
     return "AVAILABLE"
->>>>>>> origin/master

@@ -1,6 +1,8 @@
+import csv
 from template import User
 
-def createUser(userLog):
+def createUser():
+    '''
     uid = input('enter new id:')
     while uid in userLog:
         print('user already exists, please enter new id')
@@ -10,3 +12,10 @@ def createUser(userLog):
     userLog[uid] = User(uid, pwd, rank)
     print('welcome, ' + uid + '!\n')
     return (userLog[uid], userLog)
+    '''
+    with open("./std.csv", 'r') as file:
+        stdread=csv.reader(file)
+        for row in stdread:
+            uid=row[0]
+            rank=row[1]
+            pwd=row[2]
