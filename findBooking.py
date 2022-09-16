@@ -1,9 +1,7 @@
 '''
 DESCRIPTION
-receives the input of the details of the booking from user, 
-find the most matching one,
-and asks the user whether if it is the booking they're finding
+receives the input of the details of the booking from user and returns the most matching one
 
 RETURN VALUE
-return the correct booking, if none, returns void
+return the most matching booking
 ''' 
