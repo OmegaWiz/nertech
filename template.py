@@ -37,6 +37,12 @@ class Booking:
     def getTime(self):
         return (self.beginTime, self.endTime)
 
+    def getBeginTime(self):
+        return self.beginTime
+
+    def getEndTime(self):
+        return self.endTime
+
     def getUser(self):
         return self.user
     
@@ -69,8 +75,8 @@ class User:
 
 
 class BookingList:
-    def __init__(self, name):
-        self.list = [Booking()]
+    def __init__(self, name, list=[Booking()]):
+        self.list = list
         self.name = name
     
     def sortBooking(self):
@@ -101,7 +107,9 @@ class BookingList:
         return nextBookingList
 
     def addBooking(self, booking=Booking()):
+        bookingTime = booking.getBeginTime()
         for i in range(0, len(self.list)):
-            if self.list[i].getTime[1] > booking.getTime[1]:
+            selfTime = self.list[i].getBeginTime()
+            if selfTime > bookingTime:
                 self.list.insert(i, booking)
                 break
