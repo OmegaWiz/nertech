@@ -81,18 +81,3 @@ class BookingList:
     0 - canceled
     2 - successful
     '''
-
-class User:
-    def __init__(self, uid, pwd, rank):
-        self.uid = uid
-        self.pwd = pwd
-        self.rank = rank
-
-    def pwdCheck(self, pwd):
-        if(self.pwd == pwd):
-            return True
-        else:
-            return False
-            
-    def printRank(self):
-        return self.rank
