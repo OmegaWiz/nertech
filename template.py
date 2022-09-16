@@ -1,3 +1,4 @@
+from datetime import datetime
 
 class Booking:
     import datetime
@@ -60,21 +61,34 @@ class BookingList:
         self.list.sort(key=getTime())
 
     def nextBooking(self):
-        pass
+        for i in self.list:
+            if i.beginTime > datetime.datetime.now():
+                return (i)
 
     def incomingBooking(self):
-        pass
+        nextBookingList = []
+        for i in self.list:
+            if i.beginTime > datetime.datetime.now():
+                nextBookingList.append(i)
+        return nextBookingList
 
     def myNextBooking(self, user=User()):
-        pass
+        for i in self.list:
+            if i.beginTime > datetime.datetime.now() and i.getUser == user:
+                return (i)
 
     def myIncomingBooking(self, user=User()):
-        pass
+        nextBookingList = []
+        for i in self.list:
+            if i.beginTime > datetime.datetime.now() and i.getUser == user:
+                nextBookingList.append(i)
+        return nextBookingList
 
     def addBooking(self, booking=Booking()):
-        #add booking to the list and sort
-        pass
-
+        for i in range(0, len(self.list)):
+            if self.list[i].getTime[1] > booking.getTime[1]:
+                self.list.insert(i, booking)
+                break
     '''
     status
     1 - booked
