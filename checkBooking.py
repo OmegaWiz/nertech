@@ -1,45 +1,37 @@
-def checkBooking():
-    print("booking successful")
 '''
-DESCRIPTION
-check if requested booking is
-    available,
-    overridable, or 
-    unavailable
-
 RETURN VALUE
-return either "available, "overridable", or "unavailable" 
-''' 
-
+the available time slot
+'''
 import datetime
-from template import Booking, User
+from template import Booking, BookingList
 
-def checkBooking(user=User()):
-    '''
-    bookedTime = input("please enter the time you would like to book (for example, 20:10)")
-        l = bookedTime.split(':')
-        bookedTime = datetime.time(hour=int(l[0]), minute=int(l[1]))
-        startTime = datetime.datetime.combine(datetime.date.today, bookedTime)
-        while startTime < datetime.datetime.now():
-            print("the selected time is unavailable, please try again")
-            bookedTime = input("please enter the time you would like to book (for example, 20:10)")
-            l = bookedTime.split(':')
-            bookedTime = datetime.time(hour=int(l[0]), minute=int(l[1]))
-            startTime = datetime.datetime.combine(datetime.date.today, bookedTime)
-        duration = int(input("please enter the number of hour(s) you would like to book:"))
-        while duration < 1 or duration > 10:
-            print("the number of hours you're trying to book is unavailable, please try again")
-            duration = int(input("please enter the number of hour(s) you would like to book:"))
-        endTime = startTime + datetime.timedelta(hours=duration)
-        isSucessful = True
-        for i in bookingLog:
-            if i.room == room:
-                if (i.startTime < startTime and startTime < i.endTime) or (i.startTime < endTime and endTime < i.endTime)):
-                    isSucessful = False
-                    break
-        if isSucessful:
-            print("booking successful")
-            return bookingLog
-        print('the requested hour(s) are unavailable, please try again')
-    '''
-    return "AVAILABLE"
+def timeCut(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+    if j[0] < i[0]:
+        i[0] = j[1]
+    if j[1] > i[1]:
+        i[1] = j[0]
+    return i
+    
+def timeSplit(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+    x = (i[0], j[0])
+    y = (j[1], i[1])
+    return [x, y]
+
+def timeSubtract(i=(datetime.datetime(), datetime.datetime()), j=(datetime.datetime(), datetime.datetime())):
+    if j[0] <= i[0] or j[1] >= i[1]:
+        return None
+    if j[0] < i[0] or j[1] > i[1]:
+        return timeCut(i, j)
+    else:
+        return timeSplit(i, j)
+
+def checkBooking(timeList=[(datetime.datetime(), datetime.datetime())], bookingLog=BookingList()):
+    newTimeList = []
+    for i in timeList:
+        for j in bookingLog:
+            if i[0] < j[1] and j[1] < i[1]:
+                i = timeSubtract(i, j)
+            elif i[0] < j[0] and j[0] < i[1]:
+                i = timeSubtract(i, j)
+        newTimeList.append(i)
+    return newTimeList
