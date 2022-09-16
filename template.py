@@ -91,14 +91,4 @@ class BookingList:
         for i in range(0, len(self.list)):
             if self.list[i].getTime[1] > booking.getTime[1]:
                 self.list.insert(i, booking)
-<<<<<<< HEAD
                 break
-    '''
-    status
-    1 - booked
-    0 - canceled
-    2 - successful
-    '''
-=======
-                break
->>>>>>> origin/master
