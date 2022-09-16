@@ -41,7 +41,7 @@ class User:
         self.rank = rank
         
     def getId(self):
-        return uid
+        return self.uid
 
     def getRank(self):
         return self.rank
