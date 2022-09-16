@@ -6,7 +6,7 @@ from loginCheck import loginCheck
 
 userLog = importUser()
 
-bookingLog = [BookingList()]
+bookingLog = {'room' : BookingList()}
 
 (user, userLog) = loginCheck(userLog)
 
