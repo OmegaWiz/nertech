@@ -1,14 +1,13 @@
 import datetime
 from importUser import importUser
+from importBooking import importBooking
 from template import Booking, User, BookingList
 from addBooking import addBooking
 from createUser import createUser
 from loginCheck import loginCheck
 
 userLog = importUser()
-
-bookingLog = [BookingList()]
-
+bookingLog = importBooking()
 (user, userLog) = loginCheck(userLog)
 
 while(True):

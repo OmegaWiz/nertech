@@ -1,15 +1,33 @@
 
+from calendar import TUESDAY
 from datetime import datetime
+from uuid import uuid4
 
 class Booking:
     import datetime
-    def __init__(self, user='user', room='room', beginTime=datetime.datetime.now(), endTime=datetime.datetime.now()):
+    import uuid
+    def __init__(self, user='user', room='room', beginTime=datetime.datetime.now(), endTime=datetime.datetime.now(), bookingId=uuid.uuid4()):
+        self.bookingId=bookingId
         self.user = user
         self.room = room
         self.beginTime = beginTime
         self.endTime = endTime
+        self.bookingID = bookingID
         self.status = "booked"
         self.desc = ""
+
+    def findBooking(self, bookingId):
+        if self.bookingId == bookingId:
+            return True
+        else:
+            return False
+
+    def overrideBooking(self, user):
+        if user.printRank() > self.user.printRank():
+            self.status = 0
+            return 1
+        else:
+            return 0
     
     def printBooking(self):
         print("booking for {self.user}\nroom: {self.room}\ntime: {self.beginTime} - {self.endTime}\nstatus: {self.status}\ndescription: {self.description}")
@@ -19,6 +37,12 @@ class Booking:
 
     def getTime(self):
         return (self.beginTime, self.endTime)
+
+    def getBeginTime(self):
+        return self.beginTime
+
+    def getEndTime(self):
+        return self.endTime
 
     def getUser(self):
         return self.user
@@ -52,8 +76,8 @@ class User:
 
 
 class BookingList:
-    def __init__(self, name):
-        self.list = [Booking()]
+    def __init__(self, name, list=[Booking()]):
+        self.list = list
         self.name = name
     
     def sortBooking(self):
@@ -84,7 +108,9 @@ class BookingList:
         return nextBookingList
 
     def addBooking(self, booking=Booking()):
+        bookingTime = booking.getBeginTime()
         for i in range(0, len(self.list)):
-            if self.list[i].getTime[1] > booking.getTime[1]:
+            selfTime = self.list[i].getBeginTime()
+            if selfTime > bookingTime:
                 self.list.insert(i, booking)
                 break

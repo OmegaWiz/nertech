@@ -14,6 +14,7 @@ if overrideBooking is called, return the value from
 otherwise, return "failed"
 '''  
 
+from checkBooking import *
 from template import Booking, User, BookingList
 
 def addBooking( user=User(), bookingLog=[Booking()]):
@@ -43,6 +44,6 @@ def addBooking( user=User(), bookingLog=[Booking()]):
         print("the selected date is unavailable, please try again")
         dayFromNow = int(input())
     openTime = [(datetime.datetime(datetime.date.today().year, datetime.date.today().month, datetime.date.today().day + dayFromNow), datetime.datetime(datetime.date.today().year, datetime.date.today().month, datetime.date.today().day + dayFromNow), 23, 59)]
-    #remove close time
-    #remove booked time
-    #enter time for booking
+    newList=checkBooking()
+    for m in newList:
+        print(m)
