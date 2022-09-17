@@ -65,6 +65,9 @@ class User:
 
     def getRank(self):
         return self.rank
+    
+    def getPwd(self):
+        return self.pwd
 
     def pwdCheck(self, pwd):
         if(self.pwd == pwd):
@@ -115,9 +118,12 @@ class BookingList:
         return nextBookingList
 
     def addBooking(self, booking=Booking()):
+        self.list.append(booking)
+        '''
         bookingTime = booking.getBeginTime()
         for i in range(0, len(self.list)):
             selfTime = self.list[i].getBeginTime()
             if selfTime > bookingTime:
                 self.list.insert(i, booking)
                 break
+        '''
