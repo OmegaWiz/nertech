@@ -1,5 +1,4 @@
 
-from calendar import TUESDAY
 from datetime import datetime
 from uuid import uuid4
 
@@ -29,7 +28,10 @@ class Booking:
             return 0
     
     def printBooking(self):
-        print("booking for {self.user}\nroom: {self.room}\ntime: {self.beginTime} - {self.endTime}\nstatus: {self.status}\ndescription: {self.description}")
+        print("booking for ",self.user,"\nroom: ",self.room,"\ntime: ",self.beginTime," - ",self.endTime,"\nstatus: ",self.status,"\ndescription: ",self.desc)
+
+    def getBookingId(self):
+        return self.bookingId
     
     def getStatus(self):
         return self.status
@@ -78,6 +80,12 @@ class BookingList:
     def __init__(self, name, list=[Booking()]):
         self.list = list
         self.name = name
+
+    def getName(self):
+        return self.name
+
+    def getList(self):
+        return self.list
     
     def sortBooking(self):
         self.list.sort(key=getTime())
