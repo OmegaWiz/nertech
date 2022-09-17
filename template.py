@@ -28,7 +28,7 @@ class Booking:
             return 0
     
     def printBooking(self):
-        print("booking for ",self.user,"\nroom: ",self.room,"\ntime: ",self.beginTime," - ",self.endTime,"\nstatus: ",self.status,"\ndescription: ",self.desc)
+        print("booking for",self.user,"\nroom:",self.room,"\ntime:",self.beginTime,"-",self.endTime,"\nstatus:",self.status,"\ndescription:",self.desc)
 
     def getBookingId(self):
         return self.bookingId
