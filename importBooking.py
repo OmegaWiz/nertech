@@ -12,10 +12,10 @@ def importBooking(fileName="./bookingLog.csv"):
     with open(fileName, 'r') as file:
         stdread = csv.reader(file)
         for row in stdread:
-            if row[1] in bookingLog:
-                bookingLog[row[1]].addBooking(Booking(user=row[0], room=row[1], beginTime=datetime.datetime.fromisoformat(row[2]), endTime=datetime.datetime.fromisoformat(row[3]), bookingId=row[4]))
+            if row[1] in bookingLog.keys():
+                bookingLog[row[1]].addBooking(booking=Booking(user=row[0], room=row[1], beginTime=datetime.datetime.fromisoformat(row[2]), endTime=datetime.datetime.fromisoformat(row[3]), bookingId=row[4]))
             else:
-                bookingLog[row[1]] = BookingList(Booking(user=row[0], room=row[1], beginTime=datetime.datetime.fromisoformat(row[2]), endTime=datetime.datetime.fromisoformat(row[3]), bookingId=row[4]))
+                bookingLog[row[1]] = BookingList(name=row[1], list=[Booking(user=row[0], room=row[1], beginTime=datetime.datetime.fromisoformat(row[2]), endTime=datetime.datetime.fromisoformat(row[3]), bookingId=row[4])])
             print('booking imported: ' + row[4])
     close()
     print("successfully import all bookings")
