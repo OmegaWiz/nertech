@@ -1,9 +1,11 @@
 import datetime
 from importUser import importUser
 from importBooking import importBooking
+from removeBooking import removeBooking
 from template import Booking, User, BookingList
 from createUser import createUser
 from loginCheck import loginCheck
+from removeBooking import removeBooking
 
 userLog = importUser()
 bookingLog = importBooking()
@@ -18,8 +20,7 @@ while(True):
         #addBooking()
         print()
     elif(mode == 2):
-        #removeBooking()
-        print()
+        bookingLog = removeBooking(user, bookingLog)
     elif(mode == 3):
         #printBooking(user)
         print()
